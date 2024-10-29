@@ -18,8 +18,8 @@ export default function Header() {
                         to="/"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-tertiary font-bold text-lg md:text-xl"
-                                : "text-quaternary font-bold text-lg md:text-xl"
+                                ? " text-tertiary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
+                                : "text-quaternary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
                         }
                     >
                         Home
@@ -28,8 +28,8 @@ export default function Header() {
                         to="/search"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-tertiary font-bold text-lg md:text-xl"
-                                : "text-quaternary font-bold text-lg md:text-xl"
+                                ? "text-tertiary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
+                                : "text-quaternary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
                         }
                     >
                         Search
@@ -38,8 +38,8 @@ export default function Header() {
                         to="/favorites"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-tertiary font-bold text-lg md:text-xl"
-                                : "text-quaternary font-bold text-lg md:text-xl"
+                                ? "text-tertiary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
+                                : "text-quaternary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
                         }
                     >
                         Favorites
@@ -47,7 +47,9 @@ export default function Header() {
                 </nav>
             </div>
             <div className="pt-20">
-                <h1 className="text-center font-extrabold text-5xl md:text-6xl text-quaternary">{isHome}</h1>
+                <h1 className="text-center font-extrabold text-5xl md:text-6xl text-quaternary bg-black bg-opacity-50">
+                    {isHome}
+                </h1>
             </div>
         </header>
     );

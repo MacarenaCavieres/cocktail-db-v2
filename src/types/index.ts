@@ -1,4 +1,5 @@
 import { z } from "zod";
-import { RandomRecipes } from "../schemas/recipe-schemas";
+import { RandomRecipe, RandomRecipes } from "../schemas/recipe-schemas";
 
 export type Random = z.infer<typeof RandomRecipes>;
+export type OneRandom = z.infer<typeof RandomRecipe>;

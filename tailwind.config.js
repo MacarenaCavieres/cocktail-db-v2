@@ -8,6 +8,7 @@ export default {
                 secondary: "#4F5902",
                 tertiary: "#A0A603",
                 quaternary: "#ECECEC",
+                modal: "#36BA98",
             },
             fontFamily: {
                 raleway: ["Raleway", "sans-serif"],
@@ -17,6 +18,9 @@ export default {
             },
             backgroundPosition: {
                 "position-header": "30% 70%",
+            },
+            spacing: {
+                100: "30rem",
             },
         },
     },
