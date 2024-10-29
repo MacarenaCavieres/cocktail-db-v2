@@ -9,10 +9,9 @@ function AppRouter() {
         <BrowserRouter>
             <Routes>
                 <Route element={<Layout />}>
-                    <Route path="/" element={<IndexPage />}>
-                        <Route path="/search" element={<SearchPage />}></Route>
-                        <Route path="/favorites" element={<FavoritesPage />}></Route>
-                    </Route>
+                    <Route path="/" element={<IndexPage />}></Route>
+                    <Route path="/search" element={<SearchPage />}></Route>
+                    <Route path="/favorites" element={<FavoritesPage />}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>
