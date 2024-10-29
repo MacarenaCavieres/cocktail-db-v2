@@ -10,7 +10,7 @@ export default function Header() {
     );
 
     return (
-        <header className="bg-secondary py-20 ">
+        <header className="bg-header bg-position-header bg-cover py-32">
             <div className="flex justify-around items-center">
                 <img src="./logo.svg" alt="Logo cocktail" className="w-20 md:w-32" />
                 <nav className="flex gap-4">
@@ -18,8 +18,8 @@ export default function Header() {
                         to="/"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-quaternary font-bold text-lg md:text-xl"
-                                : "text-primary font-bold text-lg md:text-xl"
+                                ? "text-tertiary font-bold text-lg md:text-xl"
+                                : "text-quaternary font-bold text-lg md:text-xl"
                         }
                     >
                         Home
@@ -28,8 +28,8 @@ export default function Header() {
                         to="/search"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-quaternary font-bold text-lg md:text-xl"
-                                : "text-primary font-bold text-lg md:text-xl"
+                                ? "text-tertiary font-bold text-lg md:text-xl"
+                                : "text-quaternary font-bold text-lg md:text-xl"
                         }
                     >
                         Search
@@ -38,8 +38,8 @@ export default function Header() {
                         to="/favorites"
                         className={({ isActive }) =>
                             isActive
-                                ? "text-quaternary font-bold text-lg md:text-xl"
-                                : "text-primary font-bold text-lg md:text-xl"
+                                ? "text-tertiary font-bold text-lg md:text-xl"
+                                : "text-quaternary font-bold text-lg md:text-xl"
                         }
                     >
                         Favorites
@@ -47,7 +47,7 @@ export default function Header() {
                 </nav>
             </div>
             <div className="pt-20">
-                <h1 className="text-center font-extrabold text-5xl md:text-6xl text-tertiary">{isHome}</h1>
+                <h1 className="text-center font-extrabold text-5xl md:text-6xl text-quaternary">{isHome}</h1>
             </div>
         </header>
     );

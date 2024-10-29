@@ -4,13 +4,19 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#153448",
-                secondary: "#ca8787",
-                tertiary: "#10375C",
-                quaternary: "#f0f0f0",
+                primary: "#0A0A0D",
+                secondary: "#4F5902",
+                tertiary: "#A0A603",
+                quaternary: "#ECECEC",
             },
             fontFamily: {
                 raleway: ["Raleway", "sans-serif"],
+            },
+            backgroundImage: {
+                header: "url('/bg-header.jpg')",
+            },
+            backgroundPosition: {
+                "position-header": "30% 70%",
             },
         },
     },
