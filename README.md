@@ -2,6 +2,8 @@
 
 Aplicación web para explorar recetas de cócteles, con opciones de búsqueda, selección de favoritos y sorpresa al usuario con recetas aleatorias.
 
+Para ver el proyecto de click [aquí](https://macarenacavieres.github.io/cocktail-db-v2/#/)
+
 ## Tabla de Contenidos
 
 - [Descripción](#descripción)
