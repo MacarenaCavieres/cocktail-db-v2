@@ -32,7 +32,10 @@ export async function getByLetter(letter: Letter["letter"]) {
     try {
         const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`;
         const { data } = await axios.get(url);
-        console.log(data);
+        const result = RandomRecipes.safeParse(data);
+        if (result.success) {
+            return result.data;
+        }
     } catch (error) {
         console.error(error);
     }
