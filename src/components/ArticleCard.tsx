@@ -15,7 +15,7 @@ export default function ArticleCard({ recipe }: ArticleCardProps) {
 
     return (
         <article
-            className="text-quaternary border border-quaternary p-7 rounded-xl
+            className="text-quaternary border border-quaternary p-4 rounded-xl
             space-y-6 flex flex-col items-center"
         >
             <div className="overflow-hidden">

@@ -1,4 +1,8 @@
 /* From Uiverse.io by gharsh11032000 */
+:root {
+    --bg: linear-gradient(-45deg, #f0ff42 0%, #379237 100%);
+}
+
 .button {
     position: relative;
     width: 120px;
@@ -28,9 +32,9 @@
     width: 128px;
     height: 48px;
     border-radius: 10px;
-    /* background: linear-gradient(-45deg, #4f5902 0%, #f6fb7a 100%); */
+    background: var(--bg);
     /* background: linear-gradient(-45deg, #fd841f 0%, #f24c4c 100%); */
-    background: linear-gradient(-45deg, #f9e400 0%, #15b392 100%);
+    /* background: linear-gradient(-45deg, #f9e400 0%, #15b392 100%); */
     z-index: -10;
     pointer-events: none;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -41,9 +45,9 @@
     z-index: -1;
     position: absolute;
     inset: 0;
-    /* background: linear-gradient(-45deg, #4f5902 0%, #f6fb7a 100%); */
+    background: var(--bg);
     /* background: linear-gradient(-45deg, #fd841f 0%, #f24c4c 100%); */
-    background: linear-gradient(-45deg, #f9e400 0%, #15b392 100%);
+    /* background: linear-gradient(-45deg, #f9e400 0%, #15b392 100%); */
     transform: translate3d(0, 0, 0) scale(0.95);
     filter: blur(20px);
 }

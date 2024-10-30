@@ -9,7 +9,6 @@ export default {
                 tertiary: "#A0A603",
                 quaternary: "#ECECEC",
                 modal: "#36BA98",
-                // btn: "#FD841F",
             },
             fontFamily: {
                 raleway: ["Raleway", "sans-serif"],
@@ -22,6 +21,9 @@ export default {
             },
             spacing: {
                 100: "30rem",
+            },
+            dropShadow: {
+                custom: "0 0 5px rgba(160, 166, 3, 0.7)",
             },
         },
     },

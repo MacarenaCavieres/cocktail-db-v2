@@ -5,7 +5,12 @@ export default function Header() {
     const { pathname } = useLocation();
 
     const isHome = useMemo(
-        () => (pathname === "/" ? "Welcome to Cocktail DB" : pathname === "/search" ? "Search" : "Favorites"),
+        () =>
+            pathname === "/"
+                ? "Welcome to Cocktail DB"
+                : pathname === "/search"
+                ? "Find Your Cocktail"
+                : "Favorites",
         [pathname]
     );
 

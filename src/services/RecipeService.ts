@@ -40,3 +40,16 @@ export async function getByLetter(letter: Letter["letter"]) {
         console.error(error);
     }
 }
+
+export async function getByName(drinkName: string) {
+    try {
+        const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
+        const { data } = await axios.get(url);
+        const result = RandomRecipes.safeParse(data);
+        if (result.success) {
+            return result.data;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
