@@ -9,6 +9,8 @@ export default {
                 tertiary: "#A0A603",
                 quaternary: "#ECECEC",
                 modal: "#36BA98",
+                footer: "#A68B03",
+                spanFooter: "#EEEEEE",
             },
             fontFamily: {
                 raleway: ["Raleway", "sans-serif"],
@@ -23,7 +25,8 @@ export default {
                 100: "30rem",
             },
             dropShadow: {
-                custom: "0 0 5px rgba(160, 166, 3, 0.7)",
+                custom: "0 0 5px rgba(245, 125, 31, 0.7)",
+                "name-footer": "0 0 7px rgba(0, 191, 255, 0.7)",
             },
         },
     },

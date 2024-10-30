@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 export default function SearchPage() {
     const letter = useAppStore((state) => state.letter);
     const search = useAppStore((state) => state.search);
+    const drinkName = useAppStore((state) => state.drinkName);
     const fetchByName = useAppStore((state) => state.fetchByName);
     const showNotification = useAppStore((state) => state.showNotification);
 
@@ -19,6 +20,9 @@ export default function SearchPage() {
 
         for (let i = 97; i <= 122; i++) {
             const letter = String.fromCharCode(i);
+            if (letter === "u" || letter === "x") {
+                continue;
+            }
             letterSet.push({ id: i, letter });
         }
         return letterSet;
@@ -46,7 +50,7 @@ export default function SearchPage() {
         fetchByName(drinkName);
     };
 
-    const isSearch = useMemo(() => search.drinks.length, [search]);
+    const isSearch = useMemo(() => drinkName, [search]);
 
     return (
         <div>
@@ -72,7 +76,10 @@ export default function SearchPage() {
                             placeholder="Enter a Cocktail"
                             onChange={handleChange}
                         />
-                        <MagnifyingGlassIcon className="h-6 w-6 text-secondary mr-2 absolute bottom-16 left-2 md:bottom-2 md:left-1" />
+                        <MagnifyingGlassIcon
+                            className="h-6 w-6 text-secondary mr-2 absolute bottom-16 
+                        left-2 md:bottom-2 md:left-1"
+                        />
 
                         <button
                             type="submit"
@@ -90,8 +97,7 @@ export default function SearchPage() {
                 </h2>
             ) : isSearch ? (
                 <h2 className="text-4xl md:text-7xl text-tertiary text-center">
-                    Cocktails with the name{" "}
-                    <span className="capitalize drop-shadow-custom">{form.drinkName}</span>
+                    Cocktails with the name <span className="capitalize drop-shadow-custom">{drinkName}</span>
                 </h2>
             ) : (
                 ""

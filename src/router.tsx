@@ -31,7 +31,6 @@ function AppRouter() {
                         path="/favorites"
                         element={
                             <Suspense fallback="Loading...">
-                                <SearchPage />
                                 <FavoritesPage />
                             </Suspense>
                         }
