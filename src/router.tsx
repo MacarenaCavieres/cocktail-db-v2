@@ -7,7 +7,7 @@ const FavoritesPage = lazy(() => import("./views/FavoritesPage"));
 
 function AppRouter() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/cocktail-db-v2">
             <Routes>
                 <Route element={<Layout />}>
                     <Route
