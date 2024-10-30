@@ -1,13 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import { lazy, Suspense } from "react";
+
 const IndexPage = lazy(() => import("./views/IndexPage"));
 const SearchPage = lazy(() => import("./views/SearchPage"));
 const FavoritesPage = lazy(() => import("./views/FavoritesPage"));
 
 function AppRouter() {
     return (
-        <BrowserRouter basename="/cocktail-db-v2">
+        <Router>
             <Routes>
                 <Route element={<Layout />}>
                     <Route
@@ -37,7 +38,7 @@ function AppRouter() {
                     ></Route>
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </Router>
     );
 }
 
