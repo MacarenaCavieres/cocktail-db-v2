@@ -31,6 +31,8 @@ export async function getDrinkById(id: OneRandom["idDrink"]) {
 export async function getByLetter(letter: Letter["letter"]) {
     try {
         const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`;
+        const { data } = await axios.get(url);
+        console.log(data);
     } catch (error) {
         console.error(error);
     }
