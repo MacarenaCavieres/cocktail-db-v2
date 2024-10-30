@@ -1,6 +1,6 @@
 import axios from "axios";
 import { RandomRecipe, RandomRecipes } from "../schemas/recipe-schemas";
-import { OneRandom } from "../types";
+import { Letter, OneRandom } from "../types";
 
 export async function randomRecipeService() {
     try {
@@ -23,6 +23,14 @@ export async function getDrinkById(id: OneRandom["idDrink"]) {
         if (result.success) {
             return result.data;
         }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function getByLetter(letter: Letter["letter"]) {
+    try {
+        const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`;
     } catch (error) {
         console.error(error);
     }

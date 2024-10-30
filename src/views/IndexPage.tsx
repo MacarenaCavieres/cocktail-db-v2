@@ -14,7 +14,7 @@ export default function IndexPage() {
             <h2 className="text-4xl md:text-7xl text-tertiary text-center">Surprise me with a Cocktail</h2>
             <button
                 type="button"
-                className="bg-secondary p-3 text-quaternary rounded-xl w-36"
+                className="bg-secondary p-3 text-quaternary rounded-xl w-36 hover:bg-lime-900"
                 onClick={fetchRandomRecipe}
             >
                 Click

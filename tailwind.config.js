@@ -9,6 +9,7 @@ export default {
                 tertiary: "#A0A603",
                 quaternary: "#ECECEC",
                 modal: "#36BA98",
+                // btn: "#FD841F",
             },
             fontFamily: {
                 raleway: ["Raleway", "sans-serif"],

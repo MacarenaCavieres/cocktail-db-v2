@@ -1,13 +1,33 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
 import { Fragment } from "react";
 import { useAppStore } from "../stores/useAppStore";
+import { OneRandom } from "../types";
 
 export default function Modal() {
     const modal = useAppStore((state) => state.modal);
     const selectedDrink = useAppStore((state) => state.selectedDrink);
     const closeModal = useAppStore((state) => state.closeModal);
+    const handleFavoritesClick = useAppStore((state) => state.handleFavoritesClick);
+    const favoriteExists = useAppStore((state) => state.favoritesExists);
 
-    console.log(selectedDrink);
+    const renderIngredients = () => {
+        const ingredients: JSX.Element[] = [];
+        for (let i = 1; i <= 15; i++) {
+            const ingredient = selectedDrink[`strIngredient${i}` as keyof OneRandom];
+            const measure = selectedDrink[`strMeasure${i}` as keyof OneRandom];
+
+            if (ingredient && measure) {
+                ingredients.push(
+                    <li key={i} className="text-lg font-normal">
+                        {ingredient} - {measure}
+                    </li>
+                );
+            }
+        }
+
+        return ingredients;
+    };
+
     return (
         <>
             <Transition appear show={modal} as={Fragment}>
@@ -53,7 +73,7 @@ export default function Modal() {
                                         </div>
                                     </DialogTitle>
                                     <DialogTitle as="h3" className="text-white text-2xl font-extrabold my-5">
-                                        Ingredients
+                                        {renderIngredients()}
                                     </DialogTitle>
                                     <DialogTitle as="h3" className="text-white text-2xl font-extrabold my-3">
                                         Instructions
@@ -70,9 +90,14 @@ export default function Modal() {
                                         <button
                                             type="button"
                                             className="w-full bg-secondary p-3 font-bold uppercase text-white shadow hover:bg-lime-900"
-                                            onClick={closeModal}
+                                            onClick={() => {
+                                                handleFavoritesClick(selectedDrink);
+                                                closeModal();
+                                            }}
                                         >
-                                            Add to favorites
+                                            {favoriteExists(selectedDrink.idDrink)
+                                                ? "remove from favorites"
+                                                : "Add to favorites"}
                                         </button>
                                     </div>
                                 </DialogPanel>

@@ -17,6 +17,7 @@ export const createRandomRecipeSlice: StateCreator<RandomRecipeType> = (set) => 
     },
     modal: false,
     selectedDrink: {} as OneRandom,
+
     fetchRandomRecipe: async () => {
         const randomRecipe = await randomRecipeService();
         set({
