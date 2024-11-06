@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
 import { getByLetter, getByName } from "../services/RecipeService";
 import { Letter, Random } from "../types";
+import { createNotificationSlice, NotificationSliceType } from "./notificationSlice";
 
 export type SearchSliceType = {
     letter: string;
@@ -10,7 +11,12 @@ export type SearchSliceType = {
     fetchByName: (drinkName: string) => Promise<void>;
 };
 
-export const createSearchSlice: StateCreator<SearchSliceType> = (set) => ({
+export const createSearchSlice: StateCreator<
+    SearchSliceType & NotificationSliceType,
+    [],
+    [],
+    SearchSliceType
+> = (set, get, api) => ({
     letter: "",
     search: {
         drinks: [],
@@ -25,15 +31,17 @@ export const createSearchSlice: StateCreator<SearchSliceType> = (set) => ({
     },
     fetchByName: async (drinkName) => {
         const searchName = await getByName(drinkName);
-        set({
-            search: searchName,
-            letter: "",
-            drinkName,
-        });
+        if (typeof searchName === "string") {
+            createNotificationSlice(set, get, api).showNotification({
+                text: "Cocktail not found",
+                error: true,
+            });
+        } else {
+            set({
+                search: searchName,
+                letter: "",
+                drinkName,
+            });
+        }
     },
-    // handleForm:(drinkName)=>{
-    //     set({
-    //         drinkName
-    //     })
-    // }
 });

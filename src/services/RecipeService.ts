@@ -48,6 +48,8 @@ export async function getByName(drinkName: string) {
         const result = RandomRecipes.safeParse(data);
         if (result.success) {
             return result.data;
+        } else {
+            return "Cocktail not found";
         }
     } catch (error) {
         console.error(error);
