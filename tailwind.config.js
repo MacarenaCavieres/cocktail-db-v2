@@ -28,6 +28,15 @@ export default {
                 custom: "0 0 5px rgba(245, 125, 31, 0.7)",
                 "name-footer": "0 0 7px rgba(0, 191, 255, 0.7)",
             },
+            animation: {
+                blink: "blink 1s ease-in-out infinite",
+            },
+            keyframes: {
+                blink: {
+                    "0%, 100%": { opacity: 1, transform: "scale(1)" },
+                    "50%": { opacity: 0.1, transform: "scale(1.05)" },
+                },
+            },
         },
     },
     plugins: [],

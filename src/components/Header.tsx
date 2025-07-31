@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import logo from "/logo.svg";
 
 export default function Header() {
     const { pathname } = useLocation();
@@ -10,14 +11,16 @@ export default function Header() {
                 ? "Welcome to Cocktail DB"
                 : pathname === "/search"
                 ? "Find Your Cocktail"
-                : "Favorites",
+                : pathname === "/favorites"
+                ? "Favorites"
+                : "Generate with AI",
         [pathname]
     );
 
     return (
         <header className="bg-header bg-position-header bg-cover py-32">
             <div className="flex justify-around items-center">
-                <img src="./logo.svg" alt="Logo cocktail" className="w-20 md:w-32" />
+                <img src={logo} alt="Logo cocktail" className="w-20 md:w-32" />
                 <nav className="flex gap-4">
                     <NavLink
                         to="/"
@@ -48,6 +51,16 @@ export default function Header() {
                         }
                     >
                         Favorites
+                    </NavLink>
+                    <NavLink
+                        to="/generate-ai"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "text-tertiary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
+                                : "text-quaternary bg-black bg-opacity-50 md:bg-none font-bold text-lg md:text-xl"
+                        }
+                    >
+                        AI
                     </NavLink>
                 </nav>
             </div>

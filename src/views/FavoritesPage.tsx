@@ -8,7 +8,7 @@ export default function FavoritesPage() {
     const isFavorites = useMemo(() => favorites.length, [favorites]);
 
     return (
-        <div className="">
+        <div>
             <h2 className="capitalize text-4xl md:text-7xl text-tertiary text-center">
                 {isFavorites ? "cocktail list" : "your favorite cocktails will appear here"}
             </h2>
