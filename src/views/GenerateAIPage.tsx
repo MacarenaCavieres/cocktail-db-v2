@@ -1,10 +1,24 @@
+import { useEffect, useRef } from "react";
 import { useAppStore } from "../stores/useAppStore";
+import ReactMarkdown from "react-markdown";
 
 export default function GenerateAI() {
     const showNotification = useAppStore((state) => state.showNotification);
     const generateRecipe = useAppStore((state) => state.generateRecipe);
     const recipe = useAppStore((state) => state.recipe);
     const isGenerating = useAppStore((state) => state.isGenerating);
+
+    const prevIsGenerating = useRef(isGenerating);
+
+    useEffect(() => {
+        if (prevIsGenerating.current && !isGenerating && !recipe) {
+            showNotification({
+                text: "Limit reached in the use of the AI model",
+                error: true,
+            });
+        }
+        prevIsGenerating.current = isGenerating;
+    }, [isGenerating, recipe, showNotification]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,7 +47,7 @@ export default function GenerateAI() {
                         <input
                             name="prompt"
                             id="prompt"
-                            className="border bg-white p-4 pr-2 rounded-lg w-full border-slate-800 placeholder:truncate"
+                            className="border bg-white p-4 pr-20 rounded-lg w-full border-slate-800"
                             placeholder="Generates a recipe with ingredients. E.g., Tequila and Strawberry Drink"
                         />
                         <button
@@ -62,7 +76,9 @@ export default function GenerateAI() {
                     </div>
                 </form>
                 {isGenerating && <p className="text-center animate-blink text-tertiary">Generating...</p>}
-                <div className="py-10 whitespace-pre-wrap text-tertiary">{recipe}</div>
+                <div className="prose prose-lg prose-invert max-w-none text-tertiary">
+                    <ReactMarkdown>{recipe}</ReactMarkdown>
+                </div>
             </div>
         </div>
     );

@@ -33,11 +33,15 @@ export default {
             },
             keyframes: {
                 blink: {
-                    "0%, 100%": { opacity: 1, transform: "scale(1)" },
-                    "50%": { opacity: 0.1, transform: "scale(1.05)" },
+                    "0%, 100%": {
+                        opacity: 1,
+                    },
+                    "50%": {
+                        opacity: 0.5,
+                    },
                 },
             },
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
 };
