@@ -39,7 +39,11 @@ El proyecto utiliza React Router para gestionar la navegación y Zustand para el
 
 ![favoritesPage](./images//favoritesPage.png)
 
+## Demo de Generación con AI
+
 -   **AI:** Sección donde los usuarios pueden generar sus propias recetas preguntándole a la inteligencia artificial.
+
+Puedes ver una demostración de cómo funciona la generación de recetas usando un modelo de inteligencia artificial [haciendo clic aquí](https://youtu.be/RqrBQns2uuk?si=FmKgx7APRSNaRC9j).
 
 ![aiPage](./images//aiPage.png)
 
